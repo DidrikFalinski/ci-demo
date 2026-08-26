@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Hent koden
+        uses: actions/checkout@v7
+
+      - name: Sett opp Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Kjør tester
+        run: npm test
